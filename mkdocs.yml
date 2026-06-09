@@ -1,13 +1,18 @@
 site_name: Reinforcement Learning
+
 nav:
   - Home: index.md
-  - Chapter 1 - Introduction: chapter1/chapter1.md
-  # - Chapter 2 - Markov Decision Processes: chapter2/chapter2.md
+  # - Chapter 1 - Introduction: chapter1/chapter1.md
+  # - Chapter 2 - Markov Decision Processes:
+  #     - Part 1 – Fundamentals: chapter2/chapter2-part1.md
+  #     - Part 2 – Advanced Topics: chapter2/chapter2-part2.md
   # - Chapter 3 - Dynamic Programming: chapter3/chapter3.md
   # - Chapter 4 - Monte Carlo Methods: chapter4/chapter4.md
-  # - Chapter 5 - Temportal Difference Learning: chapter5/chapter5.md
-  # - Chapter 6 - Function Approximation: chapter6/chapter6.md
-  # - Chapter 7 - Policy Gradient Methods: chapter7/chapter7.md
+  # - Chapter 5 - Temporal Difference Learning: chapter5/chapter5.md
+  - Chapter 6 - Function Approximation:
+      - Part 1 – Fundamentals: chapter2/chapter6-part1.md
+      - Part 2 – Advanced Topics: chapter2/chapter6-part2.md
+  - Chapter 7 - Policy Gradient Methods: chapter7/chapter7.md
   # - Chapter 8 - Deep Reinforcement Learning: chapter8/chapter8.md
   # - Chapter 9 - Applications in Robotics: chapter9/chapter9.md
   # - Chapter 10 - Applications in Control: chapter10/chapter10.md
@@ -15,5 +20,13 @@ nav:
   # - Chapter 12 - Applications in [Select Domain]: chapter12/chapter12.md
   # - Chapter 13 - Applications in [Select Domain]: chapter13/chapter13.md
   # - Chapter 14 - Open Challenges: chapter14/chapter14.md
+
 theme:
   name: material
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax

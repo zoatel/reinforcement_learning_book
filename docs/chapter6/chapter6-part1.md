@@ -1,22 +1,19 @@
 # Chapter 6: Temporal-Difference Learning (TD)
 
+Author: [Radwa Ibrahim](https://github.com/Radwa-Ibrahim0)
+
 In previous chapters, we have explored two fundamental approaches to Reinforcement Learning. Dynamic Programming (DP) gave us a powerful way to solve problems, but it required a perfect map of the environment's rules. Conversely, Monte Carlo (MC) methods allowed an agent to learn from direct experience, but forced it to wait until the end of an entire episode before any learning could occur. This leaves us at a crucial crossroads: Is there a way to combine the strengths of both? This chapter introduces Temporal-Difference (TD) learning, a novel and central idea in RL that elegantly merges these two worlds.
 
-## Table of Contents
-1. [Section 1: Prediction](#section-1-prediction)
-   - [Introduction: The Best of Both Worlds](#1-introduction-the-best-of-both-worlds)
-   - [The Mathematics of TD(0)](#2-the-mathematics-of-td0)
-   - [Intuitive Walkthrough: The "Driving Home" Problem](#3-intuitive-walkthrough-the-driving-home-problem)
-   - [Why is TD Better?](#4-why-is-td-better)
-   - [Deep Dive: The Optimality of TD(0)](#5-deep-dive-the-optimality-of-td0)
-   - [Python & Library Suggestions](#6-python-library-suggestions)
-   - [Conclusion](#7-conclusion)
-   - [References](#8-references)
-   
----
+### Table of Contents
+- [Introduction: The Best of Both Worlds](#1-introduction-the-best-of-both-worlds)
+- [The Mathematics of TD(0)](#2-the-mathematics-of-td0)
+- [Intuitive Walkthrough: The "Driving Home" Problem](#3-intuitive-walkthrough-the-driving-home-problem)
+- [Why is TD Better?](#4-why-is-td-better)
+- [Deep Dive: The Optimality of TD(0)](#5-deep-dive-the-optimality-of-td0)
+- [Conclusion](#6-conclusion)
+- [References](#7-references)
 
 ## Section 1: Prediction
-**Author:** Radwa Ibrahim
 
 ### 1. Introduction: The Best of Both Worlds
 
@@ -240,47 +237,8 @@ If this environment is truly a Markov process, we expect the TD answer to produc
 
 ---
 
-### 6. Python & Library Suggestions
 
-If you want to practice implementing TD Prediction, you do not need to build environments from scratch. The Python ecosystem has standard tools designed exactly for this.
-
-**Recommended Libraries:**
-* **Numpy:** For maintaining tabular value functions as multidimensional arrays or dictionaries.
-* **[Gymnasium (Farama Foundation)](https://gymnasium.farama.org/):** The modern, maintained standard API for RL environments (formerly known as OpenAI Gym).
-
-#### Environments for TD(0)
-To test if your TD(0) prediction algorithm works, you need environments where an agent follows a set policy, and your algorithm calculates the expected returns.
-
-1. **`FrozenLake-v1`:** A simple grid world where transitions are slippery (stochastic). It is perfect for testing if your TD(0) algorithm correctly evaluates the danger of standing next to a hole.
-2. **`CliffWalking-v0`:** A classic grid environment where stepping off the cliff yields a massive negative reward (-100). 
-
-#### Setup Code Snippet
-Here is how you can easily initialize a Gymnasium environment to begin feeding data to the TD(0) update function we defined earlier:
-
-```python
-import gymnasium as gym
-import numpy as np
-
-# Initialize the environment
-env = gym.make('FrozenLake-v1', is_slippery=True)
-
-# Initialize the Value table to zeros (State space is 16 for FrozenLake)
-V = np.zeros(env.observation_space.n)
-
-# Reset environment to get the starting state
-state, info = env.reset()
-
-# Example of taking a random step and getting the data needed for a TD update
-action = env.action_space.sample() # A random policy
-next_state, reward, terminated, truncated, info = env.step(action)
-
-# Now you would pass these variables into your TD(0) update function!
-# V = update_td₀(V, state, reward, next_state)
-```
-
----
-
-### 7. Conclusion
+### 6. Conclusion
 
 Temporal-Difference learning is arguably the most central and novel idea in Reinforcement Learning. 
 
@@ -292,7 +250,7 @@ But what if we want the agent to learn the *best possible policy* while simultan
 
 ---
 
-### 8. References
+### 7. References
 
 **References:**
 * [Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction* (2nd ed.). MIT Press. (Specifically Chapter 6: Temporal-Difference Learning, pp. 143-154)](https://web.stanford.edu/class/psych209/Readings/SuttonBartoIPRLBook2ndEd.pdf).
